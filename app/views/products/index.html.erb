@@ -1,0 +1,29 @@
+<section class="product_section layout_padding">
+  <p style="color: green"><%= notice %></p>
+  <div class="container">
+    <div class="heading_container heading_center">
+      <h2>
+        Our Products
+      </h2>
+    </div>
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-sm-6 col-lg-4">
+          <div class="box">
+            <div class="img-box">
+              <%= link_to image_tag(product.product_image) %>
+            </div>
+            <div class="detail-box">
+              <div class="product_info">
+                <h5>
+                  <span>$</span>  <%= product.price %>  <%= link_to " view this product", product, class: "btn btn-primary"%>
+                </h5>
+              </div>
+            </div>
+          </div>        
+        </div>  
+      <% end %>
+    </div>
+  </div>
+</section>
+<%= link_to "New product", new_product_path %>
